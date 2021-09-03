@@ -15,7 +15,7 @@ import {
   WrapperImg,
 } from "./style";
 import { IconBack, IconPokeBall } from "../../assets/IconPack";
-import { LISTACTION } from "../../reducers/listReducer";
+import { LISTACTION } from "../../Reducers/ListReducer";
 
 const PokemonDetailsPage = ({ data, img, dispatch }) => {
   const [limitMoves] = useState(15);

@@ -18,7 +18,7 @@ import {
   WrapperLoadingScreen,
 } from "./style";
 
-import listReducer, { LISTACTION } from "../../reducers/listReducer";
+import listReducer, { LISTACTION } from "../../Reducers/ListReducer";
 
 const initialState = {
   image: "",
@@ -28,6 +28,7 @@ const initialState = {
   offset: 1,
   pokemonDetails: "",
   showDetail: false,
+  pokemonList: [],
 };
 
 const PokemonListPage = () => {
@@ -74,41 +75,21 @@ const PokemonListPage = () => {
   };
 
   useEffect(() => {
-    fetch("https://graphql-pokeapi.graphcdn.app/", {
-      credentials: "omit",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        query: gqlQuery,
-        variables: {
-          limit,
-          offset,
-        },
-      }),
-      method: "POST",
-    })
-      .then((res) => res.json())
-      .then((res) => setResult(res?.data?.pokemons));
-    return () => {};
+    Fetching();
   }, [offset]);
-
-  useEffect(() => {
-    console.log(result);
-    return () => {};
-  }, [result]);
 
   useEffect(() => {
     FetchingPokemonDetails();
     return () => {};
   }, [pokemonName]);
 
-  useEffect(() => {
+  /* useEffect(() => {
     console.log("87", state);
     return () => {};
-  }, [state]);
+  }, [state]); */
 
   const handleClickPokemon = (item) => {
     // extract pokemon name, and image
-
     setPokemonName(item.name);
 
     dispatch({
@@ -116,11 +97,11 @@ const PokemonListPage = () => {
       payload: { image: item.image, name: item.name },
     });
 
-    /* if (pokemonDetails) {
+    if (pokemonDetails) {
       dispatch({
         type: LISTACTION.FETCH_DONE,
       });
-    } */
+    }
   };
 
   const handleClickPrev = () => {

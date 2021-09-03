@@ -1,5 +1,3 @@
-import { gqlQuery } from "../components/PokemonQuerying";
-
 export const LISTACTION = {
   CLOSE: "CLOSE",
   FETCH_DONE: "FETCH DONE",
@@ -8,39 +6,7 @@ export const LISTACTION = {
   REDUCE_OFFSET: "REDUCE OFFSET",
 };
 
-/*
-const initialState = {
-  image: "",
-  isLoading: false,
-  limit: 20
-  offset: 1
-  pokemonDetails: "",
-  pokemonName: "ditto",
-  showDetail: false,
-};
- */
-
 const listReducer = (state, action) => {
-  /* const limit = state.limit;
-  const offset = state.offset;
-
-  const Fetching = () => {
-    fetch("https://graphql-pokeapi.graphcdn.app/", {
-      credentials: "omit",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        query: gqlQuery,
-        variables: {
-          limit,
-          offset,
-        },
-      }),
-      method: "POST",
-    })
-      .then((res) => res.json())
-      .then((res) => setResult(res?.data?.pokemons));
-  }; */
-
   switch (action.type) {
     case LISTACTION.CLOSE: {
       return {
