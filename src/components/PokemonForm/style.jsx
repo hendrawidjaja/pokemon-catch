@@ -6,7 +6,7 @@ export const ButtonClear = styled.button`
   cursor: pointer;
   display: flex;
   position: absolute;
-  right: 0;
+  right: 0%;
   top: 50%;
   transform: translateY(-50%) scale(0.825);
 
@@ -20,16 +20,14 @@ export const ButtonClear = styled.button`
 `;
 
 export const Form = styled.form`
-  ${mq[0]} {
-    padding-left: ${GSPACER.GUTTER[0]};
-    padding-right: ${GSPACER.GUTTER[0]};
-  }
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding-top: 1.25rem;
+  column-gap: 0.5rem;
+  position: relative;
 
   ${mq[3]} {
-    margin: 0 auto;
-    max-width: var(--screen-max-width);
-    padding-left: ${GSPACER.GUTTER[3]};
-    padding-right: ${GSPACER.GUTTER[3]};
+    padding-top: 1.5rem;
   }
 `;
 
@@ -42,6 +40,11 @@ export const Input = styled.input`
   padding-bottom: 0.6rem;
   padding-top: 0.6rem;
   width: 100%;
+
+  &::placeholder {
+    color: ${GCOLOR.GRAY24};
+    opacity: 1; /* Firefox */
+  }
 
   ${mq[0]} {
     padding-left: ${GSPACER.GUTTER[0]};

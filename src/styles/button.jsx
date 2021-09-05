@@ -7,17 +7,12 @@ export const Button = styled.button`
   border: 1px solid ${GCOLOR.TERTIER};
   color: ${GCOLOR.TERTIER};
   cursor: ${(props) => (props.disabled ? "default" : "pointer")};
-  margin-top: 0.4rem;
   opacity: ${(props) => (props.disabled ? "0.3" : "1")};
   padding-bottom: 0.6rem;
   padding-top: 0.6rem;
 
   span {
     font-size: ${GFONT.SIZE[4]};
-  }
-
-  &:first-of-type {
-    margin-right: calc(0.4rem + 2vw);
   }
 
   ${mq[3]} {

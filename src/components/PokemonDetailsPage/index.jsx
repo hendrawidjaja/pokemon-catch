@@ -7,7 +7,6 @@ import {
   Img,
   Li,
   Name,
-  Pokeball,
   SmallNote,
   Title,
   ULAbilities,
@@ -15,8 +14,9 @@ import {
   ULTypes,
   WrapperImg,
 } from "./style";
-import { IconBack, IconPokeBall } from "../../assets/IconPack";
+import { IconBack } from "../../assets/IconPack";
 import { LISTACTION } from "../../Reducers/listReducer";
+import PokemonForm from "../PokemonForm";
 
 const PokemonDetailsPage = ({ data, img, dispatch }) => {
   const [limitMoves] = useState(15);
@@ -83,7 +83,11 @@ const PokemonDetailsPage = ({ data, img, dispatch }) => {
         )}
       </Container>
 
-      <Dice onClick={() => randomNumber()}>Catch'em</Dice>
+      {!catchEM ? (
+        <Dice onClick={() => randomNumber()}>Catch'em</Dice>
+      ) : (
+        <PokemonForm />
+      )}
     </DetailPage>
   );
 };

@@ -7,15 +7,16 @@ import PokemonDetailsPage from "../PokemonDetailsPage";
 
 import { Button } from "../../styles/button";
 import {
+  CardItem,
   ContainerCards,
   Img,
-  Li,
+  ListCards,
   LoadingText,
   P,
   Title,
-  Ul,
   WrapperButton,
   WrapperLoadingScreen,
+  WrapperTitle,
 } from "./style";
 
 import listReducer, {
@@ -103,25 +104,25 @@ const PokemonListPage = () => {
     <ContainerCards className="container-cards">
       {!state.showDetail && !state.isLoadingPokemonDetail && (
         <>
-          <div className="wrapper-title">
+          <WrapperTitle className="wrapper-title">
             <Title className="title">List of pokemons</Title>
-          </div>
-          <Ul className="list-cards">
+          </WrapperTitle>
+          <ListCards className="list-cards">
             {result &&
               result?.results?.map((item, key) => {
                 return (
-                  <Li
+                  <CardItem
                     // get pokemon information more details, show modal
                     onClick={() => handleClickPokemon(item)}
                     key={key}
-                    className={`pokemon-cards`}
+                    className="card-item"
                   >
                     <Img className="" src={item.image} alt="img" />
                     <P>{item.name}</P>
-                  </Li>
+                  </CardItem>
                 );
               })}
-          </Ul>
+          </ListCards>
 
           <WrapperButton className="wrapper-buttons">
             <Button

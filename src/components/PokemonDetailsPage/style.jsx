@@ -24,7 +24,7 @@ export const DetailPage = styled.div`
   ${mq[2]} {
     padding-left: ${GSPACER.GUTTER[2]};
     padding-right: ${GSPACER.GUTTER[2]};
-    width: 50%;
+    width: 45%;
   }
 `;
 
@@ -50,7 +50,7 @@ export const Container = styled.div`
   border: 1px solid ${GCOLOR.BEIGE};
   display: grid;
   padding: 0.5rem 0;
-  row-gap: 1rem;
+  row-gap: 0.5rem;
   grid-template-areas:
     ". name name name ."
     ". image image image ."
@@ -60,6 +60,7 @@ export const Container = styled.div`
 
   ${mq[3]} {
     padding: 0.5rem 0.5rem;
+    row-gap: 0.8rem;
   }
 `;
 
@@ -128,7 +129,7 @@ export const Li = styled.li`
   font-size: ${GFONT.SIZE[2]};
   min-width: 50%;
   padding-left: 1rem;
-  padding-top: 0.1rem;
+  padding-top: 0.15rem;
   position: relative;
 
   &:before {
@@ -138,7 +139,7 @@ export const Li = styled.li`
   }
 
   ${mq[3]} {
-    padding-left: 1.5rem;
+    padding-left: 1.25rem;
   }
 `;
 
@@ -159,14 +160,13 @@ export const Dice = styled.button`
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 1.5rem;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
+  margin-top: 0.85rem;
+  padding-bottom: 0.85rem;
+  padding-top: 0.85rem;
   position: relative;
   width: 250px;
 
   ${mq[3]} {
     font-size: ${GFONT.SIZE[2]};
-    margin-top: 1rem;
   }
 `;

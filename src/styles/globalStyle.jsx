@@ -17,14 +17,14 @@ export const GSPACER = {
 
 export const GFONT = {
   SIZE: [
-    "calc(0.4em  + 0.50vw)" /* 0 */,
-    "calc(0.5em  + 0.60vw)",
-    "calc(0.7em  + 0.70vw)" /* 2 */,
-    "calc(0.8em  + 0.80vw)",
-    "calc(0.9em  + 0.90vw)",
-    "calc(1.2em  + 1.00vw)",
-    "calc(1.4em  + 1.20vw)",
-    "calc(1.6em  + 1.40vw)",
+    "calc(0.40em  + 0.50vw)" /* 0 */,
+    "calc(0.50em  + 0.60vw)",
+    "calc(0.65em  + 0.70vw)" /* 2 */,
+    "calc(0.80em  + 0.80vw)",
+    "calc(0.90em  + 0.90vw)",
+    "calc(1.20em  + 1.00vw)",
+    "calc(1.40em  + 1.20vw)",
+    "calc(1.60em  + 1.40vw)",
   ],
 };
 
