@@ -37,8 +37,8 @@ export const Input = styled.input`
   border: 1px solid ${GCOLOR.TERTIER};
   color: ${GCOLOR.TERTIER};
   font-size: ${GFONT.SIZE[1]};
-  padding-bottom: 0.6rem;
-  padding-top: 0.6rem;
+  padding-bottom: 0.65rem;
+  padding-top: 0.7rem;
   width: 100%;
 
   &::placeholder {

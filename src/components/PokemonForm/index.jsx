@@ -8,13 +8,14 @@ import { ButtonClear, Form, Input, WrapperInput } from "./style";
 
 const { ADD_POKEMON } = REDUCERCONSTANT;
 
-const PokemonForm = () => {
+const PokemonForm = ({ done, data, img }) => {
   const { dispatch } = useContext(PokemonContext);
   const [name, setName] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch({ type: ADD_POKEMON, pokemon: { name } });
+    dispatch({ type: ADD_POKEMON, payload: { name, data, img } });
+    done();
     setName("");
   };
 

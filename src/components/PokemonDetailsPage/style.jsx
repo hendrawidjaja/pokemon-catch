@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { BaseButton } from "../../styles/button";
 import { GCOLOR, GFONT, GSPACER, mq } from "../../styles/globalStyle";
 
 export const DetailPage = styled.div`
@@ -153,20 +154,19 @@ export const Title = styled.p`
   }
 `;
 
-export const Dice = styled.button`
-  align-items: center;
-  border-radius: 0.6rem;
-  display: flex;
-  justify-content: center;
+const DetailPageButton = styled(BaseButton)`
   margin-left: auto;
   margin-right: auto;
   margin-top: 0.85rem;
-  padding-bottom: 0.85rem;
-  padding-top: 0.85rem;
-  position: relative;
+  padding-bottom: 0.75rem;
+  padding-top: 0.75rem;
   width: 250px;
 
   ${mq[3]} {
     font-size: ${GFONT.SIZE[2]};
   }
 `;
+
+export const Dice = styled(DetailPageButton)``;
+export const Lucky = styled(DetailPageButton)``;
+export const PokemonSecure = styled(DetailPageButton)``;

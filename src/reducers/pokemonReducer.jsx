@@ -6,10 +6,13 @@ const { ADD_POKEMON, RELEASE_POKEMON } = REDUCERCONSTANT;
 const pokemonReducer = (state, action) => {
   switch (action.type) {
     case ADD_POKEMON: {
+      console.log("9", action.payload);
       return [
         ...state,
         {
-          name: action.pokemon.name,
+          name: action.payload.name,
+          data: action.payload.data,
+          img: action.payload.img,
           id: uuidv4(),
         },
       ];

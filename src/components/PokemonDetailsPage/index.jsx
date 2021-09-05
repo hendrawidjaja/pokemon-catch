@@ -6,7 +6,9 @@ import {
   Dice,
   Img,
   Li,
+  Lucky,
   Name,
+  PokemonSecure,
   SmallNote,
   Title,
   ULAbilities,
@@ -20,17 +22,41 @@ import PokemonForm from "../PokemonForm";
 
 const PokemonDetailsPage = ({ data, img, dispatch }) => {
   const [limitMoves] = useState(15);
-  const [catchEM, setCatchEM] = useState(false);
+  const [nameGiven, setNameGiven] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [showMessage, setShowMessage] = useState("Catch'em");
+  const [showBeforeForm, setBeforeForm] = useState(true);
 
-  const randomNumber = () => {
+  /**
+   *  handleClickRandom,
+   *  if result lower than 0.5, not success
+   *  else success
+   */
+  const handleClickRandom = () => {
     const result = Math.random().toFixed(2);
 
-    setCatchEM(result < 0.55 ? false : true);
-    console.log(result);
+    if (result < 0.5) {
+      setSuccess(false);
+
+      setShowMessage("Try again");
+      setTimeout(() => {
+        setShowMessage("Catch'em");
+      }, 2000);
+    } else {
+      setSuccess(true);
+
+      setTimeout(() => {
+        setBeforeForm((prev) => !prev);
+      }, 2000);
+    }
   };
 
   const handleBtnBack = () => {
     dispatch({ type: LISTACTION.CLOSE });
+  };
+
+  const handleNameGiven = () => {
+    setNameGiven((prev) => !prev);
   };
 
   return (
@@ -83,10 +109,14 @@ const PokemonDetailsPage = ({ data, img, dispatch }) => {
         )}
       </Container>
 
-      {!catchEM ? (
-        <Dice onClick={() => randomNumber()}>Catch'em</Dice>
+      {!success ? (
+        <Dice onClick={() => handleClickRandom()}>{showMessage}</Dice>
+      ) : showBeforeForm ? (
+        <Lucky>You are Lucky!</Lucky>
+      ) : !nameGiven ? (
+        <PokemonForm done={handleNameGiven} data={data} img={img} />
       ) : (
-        <PokemonForm />
+        <PokemonSecure onClick={() => handleBtnBack()}>Done</PokemonSecure>
       )}
     </DetailPage>
   );
