@@ -20,7 +20,7 @@ import { IconBack, IconBookmark } from "../../assets/IconPack";
 import { LISTACTION } from "../../Reducers/listReducer";
 import PokemonForm from "../PokemonForm";
 
-const PokemonDetailsPage = ({ data, img, dispatch }) => {
+const PokemonDetailsPage = ({ data, img, dispatchList }) => {
   const [limitMoves] = useState(15);
   const [nameGiven, setNameGiven] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -52,7 +52,7 @@ const PokemonDetailsPage = ({ data, img, dispatch }) => {
   };
 
   const handleBtnBack = () => {
-    dispatch({ type: LISTACTION.CLOSE });
+    dispatchList({ type: LISTACTION.CLOSE });
   };
 
   const handleNameGiven = () => {

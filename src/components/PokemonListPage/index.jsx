@@ -19,6 +19,7 @@ import {
   WrapperTitle,
 } from "./style";
 
+import pageReducer from "../../Reducers/pageReducer";
 import listReducer, {
   initialListState,
   LISTACTION,
@@ -26,7 +27,8 @@ import listReducer, {
 import { IconBookmark } from "../../assets/IconPack";
 
 const PokemonListPage = () => {
-  const [state, dispatch] = useReducer(listReducer, initialListState);
+  const [state, dispatchList] = useReducer(listReducer, initialListState);
+  const [page, dispatchPage] = useReducer(pageReducer);
   const offset = state.offset;
   const limit = state.limit;
 
@@ -81,24 +83,24 @@ const PokemonListPage = () => {
     // extract pokemon name, and image
     setPokemonName(item.name);
 
-    dispatch({
+    dispatchList({
       type: LISTACTION.FETCH_POKEMON,
       payload: { image: item.image, name: item.name },
     });
 
     if (pokemonDetails) {
-      dispatch({
+      dispatchList({
         type: LISTACTION.FETCH_DONE,
       });
     }
   };
 
   const handleClickPrev = () => {
-    dispatch({ type: LISTACTION.REDUCE_OFFSET });
+    dispatchList({ type: LISTACTION.REDUCE_OFFSET });
   };
 
   const handleClickNext = () => {
-    dispatch({ type: LISTACTION.RAISE_OFFSET });
+    dispatchList({ type: LISTACTION.RAISE_OFFSET });
   };
 
   const handleClickBookmark = () => {
@@ -159,7 +161,7 @@ const PokemonListPage = () => {
         <PokemonDetailsPage
           data={pokemonDetails}
           img={state.image}
-          dispatch={dispatch}
+          dispatchList={dispatchList}
         />
       )}
     </ContainerCards>
