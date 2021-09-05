@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  ButtonBack,
   Container,
   DetailPage,
   Dice,
@@ -14,9 +13,10 @@ import {
   ULAbilities,
   ULMoves,
   ULTypes,
+  WrapperButtons,
   WrapperImg,
 } from "./style";
-import { IconBack } from "../../assets/IconPack";
+import { IconBack, IconBookmark } from "../../assets/IconPack";
 import { LISTACTION } from "../../Reducers/listReducer";
 import PokemonForm from "../PokemonForm";
 
@@ -61,9 +61,14 @@ const PokemonDetailsPage = ({ data, img, dispatch }) => {
 
   return (
     <DetailPage className="pokemon-detail-page">
-      <ButtonBack className="btn-back" onClick={() => handleBtnBack()}>
-        <IconBack />
-      </ButtonBack>
+      <WrapperButtons className="wrapper-buttons">
+        <span className="btn-back" onClick={() => handleBtnBack()}>
+          <IconBack />
+        </span>
+        <span className="btn-bookmark" onClick={() => console.log("123")}>
+          <IconBookmark />
+        </span>
+      </WrapperButtons>
 
       <Container className="container" win>
         <Name className="name">{data.name}</Name>

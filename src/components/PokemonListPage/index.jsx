@@ -23,6 +23,7 @@ import listReducer, {
   initialListState,
   LISTACTION,
 } from "../../Reducers/listReducer";
+import { IconBookmark } from "../../assets/IconPack";
 
 const PokemonListPage = () => {
   const [state, dispatch] = useReducer(listReducer, initialListState);
@@ -100,12 +101,20 @@ const PokemonListPage = () => {
     dispatch({ type: LISTACTION.RAISE_OFFSET });
   };
 
+  const handleClickBookmark = () => {
+    console.log("107");
+  };
+
   return (
     <ContainerCards className="container-cards">
       {!state.showDetail && !state.isLoadingPokemonDetail && (
         <>
           <WrapperTitle className="wrapper-title">
             <Title className="title">List of pokemons</Title>
+
+            <span onClick={() => handleClickBookmark()}>
+              <IconBookmark />
+            </span>
           </WrapperTitle>
           <ListCards className="list-cards">
             {result &&

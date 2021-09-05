@@ -105,7 +105,7 @@ export const LoadingText = styled.p`
 
 export const WrapperTitle = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
   padding-top: 1.5rem;

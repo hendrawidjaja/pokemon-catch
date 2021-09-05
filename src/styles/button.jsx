@@ -4,11 +4,11 @@ import { GCOLOR, GFONT, GSPACER, mq } from "./globalStyle";
 export const BaseButton = styled.button`
   align-items: center;
   border-radius: calc(0.25em + 0.3vw);
+  cursor: ${(props) => (props.disabled ? "default" : "pointer")};
   display: flex;
   justify-content: center;
-  position: relative;
-  cursor: ${(props) => (props.disabled ? "default" : "pointer")};
   opacity: ${(props) => (props.disabled ? "0.3" : "1")};
+  position: relative;
 `;
 
 export const Button = styled(BaseButton)`

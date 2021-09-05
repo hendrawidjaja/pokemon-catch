@@ -29,20 +29,16 @@ export const DetailPage = styled.div`
   }
 `;
 
-export const ButtonBack = styled.button`
-  align-items center;
-  background: transparent;
-  cursor: pointer;
+export const WrapperButtons = styled.div`
   display: flex;
-  flex-direction: column;
-  height: 45px;
-  justify-content: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
   position: relative;
-  width: 45px;
+  width: 100%;
 
-  ${mq[2]} {
-    height: 65px;
-    width: 65px;
+  span {
+    cursor: pointer;
   }
 `;
 
@@ -52,6 +48,7 @@ export const Container = styled.div`
   display: grid;
   padding: 0.5rem 0;
   row-gap: 0.5rem;
+  user-select: none;
   grid-template-areas:
     ". name name name ."
     ". image image image ."
@@ -75,7 +72,7 @@ export const Name = styled.p`
   text-align: center;
 
   ${mq[3]} {
-    font-size: ${GFONT.SIZE[6]};
+    font-size: ${GFONT.SIZE[5]};
     letter-spacing: 0.8px;
   }
 `;
@@ -90,7 +87,7 @@ export const Img = styled.img`
   max-width: 100%;
 
   ${mq[3]} {
-    transform: scale(1.25);
+    transform: scale(1.15);
   }
 `;
 
