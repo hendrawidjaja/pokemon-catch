@@ -7,6 +7,7 @@ import {
   Img,
   Li,
   Name,
+  Pokeball,
   SmallNote,
   Title,
   ULAbilities,
@@ -15,7 +16,7 @@ import {
   WrapperImg,
 } from "./style";
 import { IconBack, IconPokeBall } from "../../assets/IconPack";
-import { LISTACTION } from "../../Reducers/ListReducer";
+import { LISTACTION } from "../../Reducers/listReducer";
 
 const PokemonDetailsPage = ({ data, img, dispatch }) => {
   const [limitMoves] = useState(15);
@@ -38,12 +39,10 @@ const PokemonDetailsPage = ({ data, img, dispatch }) => {
         <IconBack />
       </ButtonBack>
 
-      <Name className="name">{data.name}</Name>
-
-      <Container className="container">
+      <Container className="container" win>
+        <Name className="name">{data.name}</Name>
         <WrapperImg className="wrapper-img">
           <Img className="pokemon-img" src={img} alt="pokemon-img" />
-          {catchEM && <IconPokeBall />}
         </WrapperImg>
 
         {data && (

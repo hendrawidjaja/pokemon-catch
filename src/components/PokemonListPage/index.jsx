@@ -18,21 +18,13 @@ import {
   WrapperLoadingScreen,
 } from "./style";
 
-import listReducer, { LISTACTION } from "../../Reducers/ListReducer";
-
-const initialState = {
-  image: "",
-  isLoading: false,
-  limit: 20,
-  name: "ditto",
-  offset: 1,
-  pokemonDetails: "",
-  showDetail: false,
-  pokemonList: [],
-};
+import listReducer, {
+  initialListState,
+  LISTACTION,
+} from "../../Reducers/listReducer";
 
 const PokemonListPage = () => {
-  const [state, dispatch] = useReducer(listReducer, initialState);
+  const [state, dispatch] = useReducer(listReducer, initialListState);
   const offset = state.offset;
   const limit = state.limit;
 
@@ -83,11 +75,6 @@ const PokemonListPage = () => {
     return () => {};
   }, [pokemonName]);
 
-  /* useEffect(() => {
-    console.log("87", state);
-    return () => {};
-  }, [state]); */
-
   const handleClickPokemon = (item) => {
     // extract pokemon name, and image
     setPokemonName(item.name);
@@ -114,7 +101,7 @@ const PokemonListPage = () => {
 
   return (
     <ContainerCards className="container-cards">
-      {!state.showDetail && !state.isLoading && (
+      {!state.showDetail && !state.isLoadingPokemonDetail && (
         <>
           <div className="wrapper-title">
             <Title className="title">List of pokemons</Title>
@@ -152,7 +139,7 @@ const PokemonListPage = () => {
         </>
       )}
 
-      {state.isLoading && (
+      {state.isLoadingPokemonDetail && (
         <WrapperLoadingScreen>
           <LoadingText>Loading...</LoadingText>
         </WrapperLoadingScreen>

@@ -1,9 +1,22 @@
 export const LISTACTION = {
   CLOSE: "CLOSE",
   FETCH_DONE: "FETCH DONE",
+  FETCH_LIST: "FETCH LIST",
   FETCH_POKEMON: "FETCH POKEMON",
   RAISE_OFFSET: "RAISE OFFSET",
   REDUCE_OFFSET: "REDUCE OFFSET",
+};
+
+export const initialListState = {
+  image: "",
+  isLoadingList: false,
+  isLoadingPokemonDetail: false,
+  limit: 20,
+  name: "ditto",
+  offset: 1,
+  pokemonDetails: "",
+  showDetail: false,
+  pokemonList: [],
 };
 
 const listReducer = (state, action) => {
@@ -20,6 +33,13 @@ const listReducer = (state, action) => {
         ...state,
         isLoading: false,
         showDetail: true,
+      };
+    }
+
+    case LISTACTION.FETCH_LIST: {
+      return {
+        ...state,
+        pokemonList: action.payload.pokemonList.pokemons,
       };
     }
 
