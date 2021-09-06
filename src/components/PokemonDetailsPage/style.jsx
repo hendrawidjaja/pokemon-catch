@@ -141,6 +141,9 @@ export const Title = styled.p`
 `;
 
 const DetailPageButton = styled(BaseButton)`
+  background-color: ${GCOLOR.SECONDARY};
+  border: 1px solid ${GCOLOR.TERTIER};
+  color: ${GCOLOR.TERTIER};
   margin-left: auto;
   margin-right: auto;
   margin-top: 0.85rem;
