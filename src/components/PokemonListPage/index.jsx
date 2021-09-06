@@ -69,11 +69,12 @@ const PokemonListPage = () => {
 
   useEffect(() => {
     Fetching();
+    return () => {}; // eslint-disable-next-line
   }, [offset]);
 
   useEffect(() => {
     FetchingPokemonDetails();
-    return () => {};
+    return () => {}; // eslint-disable-next-line
   }, [pokemonName]);
 
   const handleClickPokemon = (item) => {
