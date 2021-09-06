@@ -3,7 +3,6 @@ import { GCOLOR, GFONT, GSPACER, mq } from "../../styles/globalStyle";
 
 export const Container = styled.div`
   font-size: ${GFONT.SIZE[2]};
-  margin-top: 1rem;
   padding: 1rem ${GSPACER.GUTTER[0]};
   position: relative;
 
@@ -22,6 +21,7 @@ export const WrapperButtonCollection = styled.div`
   display: flex;
   gap: 0.5rem;
   justify-content: end;
+  height: 1.5rem;
   position: relative;
   width: 100%;
 
@@ -92,13 +92,13 @@ export const P = styled.p`
 
 export const WrapperButton = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, 30vw);
+  grid-template-columns: repeat(auto-fit, 28vw);
   padding-bottom: 1.2rem;
   padding-top: 1.2rem;
   position: relative;
   justify-content: space-between;
   margin-left: auto;
-  width: 70%;
+  width: 75%;
 
   @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
     grid-template-columns: repeat(auto-fit, 15vw);

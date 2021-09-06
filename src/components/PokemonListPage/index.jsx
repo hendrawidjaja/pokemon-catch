@@ -1,8 +1,9 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useContext, useEffect, useReducer, useState } from "react";
 import { gqlQuery, gqlQueryAbilites } from "../PokemonQuerying";
-
+import PokemonCollection from "../PokemonCollection/PokemonCollection";
+import { PokemonContext } from "../../contexts/PokemonContext";
 import PokemonDetailsPage from "../PokemonDetailsPage";
 
 import { Button } from "../../styles/button";
@@ -27,10 +28,11 @@ import listReducer, {
 } from "../../Reducers/listReducer";
 
 import { IconCollection } from "../../assets/IconPack";
-import PokemonCollection from "../PokemonCollection/PokemonCollection";
 
 const PokemonListPage = () => {
   const [state, dispatchList] = useReducer(listReducer, initialListState);
+  const { pokemons } = useContext(PokemonContext);
+
   const offset = state.offset;
   const limit = state.limit;
 
@@ -111,12 +113,14 @@ const PokemonListPage = () => {
 
   return (
     <Container className="main-container">
-      <WrapperButtonCollection className="wrapper-buttons">
-        Show Collection
-        <span onClick={() => handleClickCollection()}>
-          <IconCollection />
-        </span>
-      </WrapperButtonCollection>
+      {pokemons.length > 0 && (
+        <WrapperButtonCollection className="wrapper-buttons">
+          Show Collection
+          <span onClick={() => handleClickCollection()}>
+            <IconCollection />
+          </span>
+        </WrapperButtonCollection>
+      )}
 
       {!state.showCollection && (
         <ContainerCards className="container-cards">

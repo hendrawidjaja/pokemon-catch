@@ -42,6 +42,10 @@ const GlobalStyles = css`
     list-style-type: none;
   }
 
+  img {
+    max-width: 100%;
+  }
+
   .dflex {
     display: flex;
   }

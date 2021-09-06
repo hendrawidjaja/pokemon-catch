@@ -4,7 +4,6 @@ export const REDUCERCONSTANT = {
   ADD_POKEMON: "ADD POKEMON",
   RELEASE_POKEMON: "RELEASE POKEMON",
   FETCH_POKEMON: "FETCH POKEMON",
-  SHOW_ALL: "SHOW ALL",
 };
 
 const pokemonReducer = (state, action) => {
@@ -22,11 +21,7 @@ const pokemonReducer = (state, action) => {
     }
 
     case REDUCERCONSTANT.RELEASE_POKEMON: {
-      return state.filter((pokemon) => pokemon.id !== action.id);
-    }
-
-    case REDUCERCONSTANT.SHOW_ALL: {
-      return state;
+      return state.filter((pokemon) => pokemon.id !== action.payload.id);
     }
 
     default:
