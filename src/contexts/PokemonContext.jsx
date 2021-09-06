@@ -1,6 +1,6 @@
 import React, { createContext, useReducer, useEffect } from "react";
-import listReducer, { initialListState } from "../Reducers/listReducer";
 import pokemonReducer from "../Reducers/pokemonReducer";
+import listReducer, { initialListState } from "../Reducers/listReducer";
 
 export const PokemonContext = createContext();
 export const ListContext = createContext();
