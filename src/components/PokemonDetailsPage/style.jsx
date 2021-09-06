@@ -110,18 +110,6 @@ export const ULTypes = styled.ul`
   grid-area: types;
 `;
 
-export const SmallNote = styled.p`
-  color: ${GCOLOR.TERTIER};
-  font-size: ${GFONT.SIZE[0]};
-  font-style: italic;
-  grid-area: smallnote;
-  padding-top: 0.2rem;
-
-  ${mq[3]} {
-    padding-top: 0.15rem;
-  }
-`;
-
 export const Li = styled.li`
   color: ${GCOLOR.TERTIER};
   font-size: ${GFONT.SIZE[2]};
@@ -137,17 +125,18 @@ export const Li = styled.li`
   }
 
   ${mq[3]} {
+    font-size: ${GFONT.SIZE[1]};
     padding-left: 1.25rem;
   }
 `;
 
 export const Title = styled.p`
   color: ${GCOLOR.BEIGE};
-  font-size: ${GFONT.SIZE[2]};
+  font-size: ${GFONT.SIZE[1]};
   font-weight: 600;
 
   ${mq[3]} {
-    font-size: ${GFONT.SIZE[3]};
+    font-size: ${GFONT.SIZE[2]};
   }
 `;
 

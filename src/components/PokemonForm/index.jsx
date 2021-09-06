@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { PokemonContext } from "../../contexts/PokemonContext";
 import { REDUCERCONSTANT } from "../../Reducers/pokemonReducer";
 
@@ -11,6 +11,22 @@ const { ADD_POKEMON } = REDUCERCONSTANT;
 const PokemonForm = ({ done, data, img }) => {
   const { dispatch } = useContext(PokemonContext);
   const [name, setName] = useState("");
+
+  useEffect(() => {
+    const listener = (event) => {
+      if (event.code === "Enter" || event.code === "NumpadEnter") {
+        dispatch({ type: ADD_POKEMON, payload: { name, data, img } });
+        done();
+        setName("");
+        event.preventDefault();
+      }
+    };
+    document.addEventListener("keydown", listener);
+
+    return () => {
+      document.removeEventListener("keydown", listener);
+    };
+  }, [data, dispatch, done, img, name]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

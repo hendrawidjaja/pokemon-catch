@@ -8,7 +8,6 @@ import {
   Lucky,
   Name,
   PokemonSecure,
-  SmallNote,
   Title,
   ULAbilities,
   ULMoves,
@@ -94,9 +93,6 @@ const PokemonDetailsPage = ({ data, img, dispatchList }) => {
                     </Li>
                   )
               )}
-              {data.moves > limitMoves && (
-                <SmallNote>only {limitMoves} moves displayed</SmallNote>
-              )}
             </ULMoves>
 
             <ULTypes>
@@ -119,7 +115,7 @@ const PokemonDetailsPage = ({ data, img, dispatchList }) => {
         <PokemonForm done={handleNameGiven} data={data} img={img} />
       ) : (
         <PokemonSecure onClick={() => handleBtnBack()}>
-          Pokemon added to collection
+          Pokemon added!
         </PokemonSecure>
       )}
     </DetailPage>
