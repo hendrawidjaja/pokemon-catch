@@ -20,10 +20,24 @@ export const WrapperTitle = styled.div`
   flex-direction: column;
 `;
 
+export const WrapperButtons = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  position: relative;
+  width: 100%;
+
+  span {
+    cursor: pointer;
+  }
+`;
+
 export const Title = styled.p`
   align-items: center;
   display: flex;
   font-size: ${GFONT.SIZE[7]};
+  height: ${(props) => props.center && `calc(100vh - 5.75rem)`};
   justify-content: ${(props) => props.center && `center`};
   width: 100%;
 

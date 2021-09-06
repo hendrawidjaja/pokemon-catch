@@ -1,5 +1,9 @@
 import React, { useContext } from "react";
-import { PokemonContext } from "../../contexts/PokemonContext";
+import { ListContext, PokemonContext } from "../../contexts/PokemonContext";
+
+import { REDUCERCONSTANT } from "../../Reducers/pokemonReducer";
+import { LISTACTION } from "../../Reducers/listReducer";
+
 import {
   Card,
   CardList,
@@ -8,16 +12,22 @@ import {
   Title,
   WrapperTitle,
   SmallNote,
+  WrapperButtons,
 } from "./style";
 
-import { REDUCERCONSTANT } from "../../Reducers/pokemonReducer";
-const { RELEASE_POKEMON } = REDUCERCONSTANT;
+import { IconBack } from "../../assets/IconPack";
 
 const PokemonCollection = () => {
+  const { RELEASE_POKEMON } = REDUCERCONSTANT;
   const { pokemons, dispatch } = useContext(PokemonContext);
+  const { dispatchList } = useContext(ListContext);
 
   const releasePokemon = (id) => {
     dispatch({ type: RELEASE_POKEMON, payload: { id } });
+  };
+
+  const handleClickCollection = () => {
+    dispatchList({ type: LISTACTION.TOGGLE_COLLECTION });
   };
 
   return (
@@ -28,9 +38,17 @@ const PokemonCollection = () => {
           <SmallNote>Click to remove</SmallNote>
         </WrapperTitle>
       ) : (
-        <Title center className="title">
-          You don't have any collection
-        </Title>
+        <>
+          <WrapperButtons className="wrapper-buttons">
+            <span className="btn-back" onClick={() => handleClickCollection()}>
+              <IconBack />
+            </span>
+          </WrapperButtons>
+
+          <Title center className="title">
+            You don't have any collection
+          </Title>
+        </>
       )}
 
       {pokemons.length > 0 && (

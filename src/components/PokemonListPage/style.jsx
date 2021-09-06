@@ -5,6 +5,7 @@ export const Container = styled.div`
   font-size: ${GFONT.SIZE[2]};
   padding: 1rem ${GSPACER.GUTTER[0]};
   position: relative;
+  min-height: 100vh;
 
   ${mq[3]} {
     font-size: ${GFONT.SIZE[1]};

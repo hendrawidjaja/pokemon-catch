@@ -1,7 +1,8 @@
-import React, { useContext, useEffect, useReducer, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { gqlQuery, gqlQueryAbilites } from "../PokemonQuerying";
+import { LISTACTION } from "../../Reducers/listReducer";
+import { ListContext, PokemonContext } from "../../contexts/PokemonContext";
 import PokemonCollection from "../PokemonCollection/PokemonCollection";
-import { PokemonContext } from "../../contexts/PokemonContext";
 import PokemonDetailsPage from "../PokemonDetailsPage";
 
 import { Button } from "../../styles/button";
@@ -20,19 +21,14 @@ import {
   WrapperButtonCollection,
 } from "./style";
 
-import listReducer, {
-  initialListState,
-  LISTACTION,
-} from "../../Reducers/listReducer";
-
 import { IconCollection } from "../../assets/IconPack";
 
 const PokemonListPage = () => {
-  const [state, dispatchList] = useReducer(listReducer, initialListState);
+  const { listState, dispatchList } = useContext(ListContext);
   const { pokemons } = useContext(PokemonContext);
 
-  const offset = state.offset;
-  const limit = state.limit;
+  const offset = listState.offset;
+  const limit = listState.limit;
 
   const [pokemonName, setPokemonName] = useState("ditto");
   const [result, setResult] = useState();
@@ -119,9 +115,9 @@ const PokemonListPage = () => {
         </WrapperButtonCollection>
       )}
 
-      {!state.showCollection && (
+      {!listState.showCollection && (
         <ContainerCards className="container-cards">
-          {!state.showDetail && !state.isLoadingPokemonDetail && (
+          {!listState.showDetail && !listState.isLoadingPokemonDetail && (
             <>
               <WrapperTitle className="wrapper-title">
                 <Title className="title">List of pokemons</Title>
@@ -147,7 +143,7 @@ const PokemonListPage = () => {
                 <Button
                   className="btn-prev"
                   onClick={() => handleClickPrev()}
-                  disabled={state.offset <= 1}
+                  disabled={listState.offset <= 1}
                 >
                   <span>Prev</span>
                 </Button>
@@ -159,23 +155,23 @@ const PokemonListPage = () => {
             </>
           )}
 
-          {state.isLoadingPokemonDetail && (
+          {listState.isLoadingPokemonDetail && (
             <WrapperLoadingScreen>
               <LoadingText>Loading...</LoadingText>
             </WrapperLoadingScreen>
           )}
 
-          {state.showDetail && (
+          {listState.showDetail && (
             <PokemonDetailsPage
               data={pokemonDetails}
-              img={state.image}
+              img={listState.image}
               dispatchList={dispatchList}
             />
           )}
         </ContainerCards>
       )}
 
-      {state.showCollection && <PokemonCollection />}
+      {listState.showCollection && <PokemonCollection />}
     </Container>
   );
 };
