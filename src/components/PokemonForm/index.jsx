@@ -15,10 +15,12 @@ const PokemonForm = ({ done, data, img }) => {
   useEffect(() => {
     const listener = (event) => {
       if (event.code === "Enter" || event.code === "NumpadEnter") {
-        dispatch({ type: ADD_POKEMON, payload: { name, data, img } });
-        done();
-        setName("");
-        event.preventDefault();
+        if (name !== "") {
+          dispatch({ type: ADD_POKEMON, payload: { name, data, img } });
+          setName("");
+          done();
+          event.preventDefault();
+        }
       }
     };
     document.addEventListener("keydown", listener);
@@ -26,16 +28,12 @@ const PokemonForm = ({ done, data, img }) => {
     return () => {
       document.removeEventListener("keydown", listener);
     };
-  }, [data, dispatch, done, img, name]);
+  }, [data, dispatch, img, name, done]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch({ type: ADD_POKEMON, payload: { name, data, img } });
     done();
-    setName("");
-  };
-
-  const handleClear = () => {
     setName("");
   };
 
@@ -52,14 +50,14 @@ const PokemonForm = ({ done, data, img }) => {
         />
 
         {name && (
-          <ButtonClear onClick={() => handleClear()} className="wrapper-icon">
+          <ButtonClear onClick={() => setName("")} className="wrapper-icon">
             <IconX />
           </ButtonClear>
         )}
       </WrapperInput>
 
       <Button className="btn-form" type="submit">
-        Submit
+        <span>Submit</span>
       </Button>
     </Form>
   );

@@ -25,7 +25,7 @@ const pokemonReducer = (state, action) => {
     }
 
     default:
-      return state;
+      throw Error("Unknown action");
   }
 };
 

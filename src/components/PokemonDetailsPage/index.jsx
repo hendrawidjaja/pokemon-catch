@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { IconBack } from "../../assets/IconPack";
+import { LISTACTION } from "../../Reducers/listReducer";
+import PokemonForm from "../PokemonForm";
+
 import {
   Container,
   DetailPage,
@@ -15,16 +19,13 @@ import {
   WrapperButtons,
   WrapperImg,
 } from "./style";
-import { IconBack } from "../../assets/IconPack";
-import { LISTACTION } from "../../Reducers/listReducer";
-import PokemonForm from "../PokemonForm";
 
 const PokemonDetailsPage = ({ data, img, dispatchList }) => {
   const [limitMoves] = useState(15);
   const [nameGiven, setNameGiven] = useState(false);
   const [success, setSuccess] = useState(false);
   const [showMessage, setShowMessage] = useState("Catch'em");
-  const [showBeforeForm, setBeforeForm] = useState(true);
+  const [showBeforeForm, setShowBeforeForm] = useState(true);
 
   /**
    *  handleClickRandom,
@@ -36,7 +37,6 @@ const PokemonDetailsPage = ({ data, img, dispatchList }) => {
 
     if (result < 0.5) {
       setSuccess(false);
-
       setShowMessage("Try again");
       setTimeout(() => {
         setShowMessage("Catch'em");
@@ -45,7 +45,7 @@ const PokemonDetailsPage = ({ data, img, dispatchList }) => {
       setSuccess(true);
 
       setTimeout(() => {
-        setBeforeForm((prev) => !prev);
+        setShowBeforeForm((prev) => !prev);
       }, 2000);
     }
   };

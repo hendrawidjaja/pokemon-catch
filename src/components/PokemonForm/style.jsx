@@ -6,16 +6,12 @@ export const ButtonClear = styled.button`
   cursor: pointer;
   display: flex;
   position: absolute;
-  right: 0%;
+  right: 0.5rem;
   top: 50%;
-  transform: translateY(-50%) scale(0.825);
-
-  ${mq[0]} {
-    padding-right: ${GSPACER.GUTTER[0]};
-  }
+  transform: translateY(-50%) scale(0.625);
 
   ${mq[3]} {
-    padding-right: ${GSPACER.GUTTER[3]};
+    transform: translateY(-50%) scale(0.85);
   }
 `;
 
@@ -36,7 +32,7 @@ export const Input = styled.input`
   border-radius: calc(0.25em + 0.15vw);
   border: 1px solid ${GCOLOR.TERTIER};
   color: ${GCOLOR.TERTIER};
-  font-size: ${GFONT.SIZE[1]};
+  font-size: ${GFONT.SIZE[2]};
   padding-bottom: 0.8rem;
   padding-top: 0.8rem;
   width: 100%;
@@ -48,12 +44,12 @@ export const Input = styled.input`
 
   ${mq[0]} {
     padding-left: ${GSPACER.GUTTER[0]};
-    padding-right: ${GSPACER.GUTTER[0]};
+    padding-right: 2.25rem;
   }
 
   ${mq[3]} {
     padding-left: ${GSPACER.GUTTER[3]};
-    padding-right: ${GSPACER.GUTTER[3]};
+    padding-right: 2.5rem;
   }
 `;
 

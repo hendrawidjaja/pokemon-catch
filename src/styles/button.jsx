@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { GCOLOR, GFONT, GSPACER, mq } from "./globalStyle";
+import { GCOLOR, GFONT, mq } from "./globalStyle";
 
 export const BaseButton = styled.button`
   align-items: center;
@@ -15,19 +15,18 @@ export const Button = styled(BaseButton)`
   background-color: ${GCOLOR.SECONDARY};
   border: 1px solid ${GCOLOR.TERTIER};
   color: ${GCOLOR.TERTIER};
-  padding-bottom: 0.7rem;
-  padding-top: 0.7rem;
+  padding-bottom: 0.6rem;
+  padding-top: 0.6rem;
 
   span {
-    font-size: ${GFONT.SIZE[4]};
+    font-size: ${GFONT.SIZE[2]};
   }
 
   ${mq[3]} {
     max-width: 220px;
 
     span {
-      padding-left: calc(0.5vw + ${GSPACER.GUTTER[3]});
-      padding-right: calc(0.5vw + ${GSPACER.GUTTER[3]});
+      font-size: ${GFONT.SIZE[2]};
     }
   }
 `;

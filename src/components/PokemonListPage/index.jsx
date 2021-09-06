@@ -1,5 +1,3 @@
-/* eslint-disable no-use-before-define */
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useReducer, useState } from "react";
 import { gqlQuery, gqlQueryAbilites } from "../PokemonQuerying";
 import PokemonCollection from "../PokemonCollection/PokemonCollection";
@@ -38,7 +36,6 @@ const PokemonListPage = () => {
 
   const [pokemonName, setPokemonName] = useState("ditto");
   const [result, setResult] = useState();
-
   const [pokemonDetails, setPokemonDetails] = useState();
 
   const Fetching = () => {
