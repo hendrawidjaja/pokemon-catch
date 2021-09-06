@@ -16,7 +16,7 @@ import {
   WrapperButtons,
   WrapperImg,
 } from "./style";
-import { IconBack, IconBookmark } from "../../assets/IconPack";
+import { IconBack } from "../../assets/IconPack";
 import { LISTACTION } from "../../Reducers/listReducer";
 import PokemonForm from "../PokemonForm";
 
@@ -64,9 +64,6 @@ const PokemonDetailsPage = ({ data, img, dispatchList }) => {
       <WrapperButtons className="wrapper-buttons">
         <span className="btn-back" onClick={() => handleBtnBack()}>
           <IconBack />
-        </span>
-        <span className="btn-bookmark" onClick={() => console.log("123")}>
-          <IconBookmark />
         </span>
       </WrapperButtons>
 

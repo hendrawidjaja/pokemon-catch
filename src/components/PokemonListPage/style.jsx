@@ -1,6 +1,36 @@
 import styled from "@emotion/styled";
 import { GCOLOR, GFONT, GSPACER, mq } from "../../styles/globalStyle";
 
+export const Container = styled.div`
+  font-size: ${GFONT.SIZE[2]};
+  margin-top: 1rem;
+  padding: 1rem ${GSPACER.GUTTER[0]};
+  position: relative;
+
+  ${mq[3]} {
+    font-size: ${GFONT.SIZE[1]};
+    margin: 0 auto;
+    max-width: var(--screen-max-width);
+    padding-left: ${GSPACER.GUTTER[3]};
+    padding-right: ${GSPACER.GUTTER[3]};
+  }
+`;
+
+export const WrapperButtonCollection = styled.div`
+  align-items: center;
+  color: ${GCOLOR.TERTIER};
+  display: flex;
+  gap: 0.5rem;
+  justify-content: end;
+  position: relative;
+  width: 100%;
+
+  span {
+    cursor: pointer;
+    max-height: 1.5rem;
+  }
+`;
+
 export const ContainerCards = styled.div`
   padding-left: ${GSPACER.GUTTER[0]};
   padding-right: ${GSPACER.GUTTER[0]};
@@ -70,13 +100,13 @@ export const WrapperButton = styled.div`
   margin-left: auto;
   width: 70%;
 
-  ${mq[2]} {
-    grid-template-columns: repeat(auto-fit, 25vw);
-    width: 55%;
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+    grid-template-columns: repeat(auto-fit, 15vw);
+    width: 35%;
   }
 
-  ${mq[3]} {
-    grid-template-columns: repeat(auto-fit, 17vw);
+  ${mq[4]} {
+    grid-template-columns: repeat(auto-fit, 12.5vw);
     max-width: var(--screen-max-width);
     padding-bottom: 2.25rem;
     padding-top: 2.25rem;

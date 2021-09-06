@@ -5,6 +5,7 @@ export const LISTACTION = {
   FETCH_POKEMON: "FETCH POKEMON",
   RAISE_OFFSET: "RAISE OFFSET",
   REDUCE_OFFSET: "REDUCE OFFSET",
+  TOGGLE_COLLECTION: "TOGGLE COLLECTION",
 };
 
 export const initialListState = {
@@ -16,6 +17,7 @@ export const initialListState = {
   offset: 1,
   pokemonDetails: "",
   showDetail: false,
+  showCollection: false,
   pokemonList: [],
 };
 
@@ -63,6 +65,13 @@ const listReducer = (state, action) => {
       return {
         ...state,
         offset: state.offset <= 1 ? state.offset : (state.offset -= 20),
+      };
+    }
+
+    case LISTACTION.TOGGLE_COLLECTION: {
+      return {
+        ...state,
+        showCollection: !state.showCollection,
       };
     }
 

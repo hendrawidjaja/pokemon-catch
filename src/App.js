@@ -58,8 +58,8 @@ const GlobalStyles = css`
 function App() {
   return (
     <div className="App">
+      <Global styles={GlobalStyles} />
       <PokemonContextProvider>
-        <Global styles={GlobalStyles} />
         <PokemonListPage />
       </PokemonContextProvider>
     </div>

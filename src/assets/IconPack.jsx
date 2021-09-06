@@ -1,7 +1,7 @@
 import React from "react";
 import { GCOLOR } from "../styles/globalStyle";
 
-const IconBookmark = () => {
+const IconCollection = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -114,4 +114,4 @@ const IconPokeBall = () => {
   );
 };
 
-export { IconBookmark, IconX, IconBack, IconPokeBall };
+export { IconCollection, IconX, IconBack, IconPokeBall };

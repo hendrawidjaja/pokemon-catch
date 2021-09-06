@@ -7,6 +7,7 @@ import PokemonDetailsPage from "../PokemonDetailsPage";
 
 import { Button } from "../../styles/button";
 import {
+  Container,
   CardItem,
   ContainerCards,
   Img,
@@ -17,18 +18,19 @@ import {
   WrapperButton,
   WrapperLoadingScreen,
   WrapperTitle,
+  WrapperButtonCollection,
 } from "./style";
 
-import pageReducer from "../../Reducers/pageReducer";
 import listReducer, {
   initialListState,
   LISTACTION,
 } from "../../Reducers/listReducer";
-import { IconBookmark } from "../../assets/IconPack";
+
+import { IconCollection } from "../../assets/IconPack";
+import PokemonCollection from "../PokemonCollection/PokemonCollection";
 
 const PokemonListPage = () => {
   const [state, dispatchList] = useReducer(listReducer, initialListState);
-  const [page, dispatchPage] = useReducer(pageReducer);
   const offset = state.offset;
   const limit = state.limit;
 
@@ -103,68 +105,77 @@ const PokemonListPage = () => {
     dispatchList({ type: LISTACTION.RAISE_OFFSET });
   };
 
-  const handleClickBookmark = () => {
-    console.log("107");
+  const handleClickCollection = () => {
+    dispatchList({ type: LISTACTION.TOGGLE_COLLECTION });
   };
 
   return (
-    <ContainerCards className="container-cards">
-      {!state.showDetail && !state.isLoadingPokemonDetail && (
-        <>
-          <WrapperTitle className="wrapper-title">
-            <Title className="title">List of pokemons</Title>
+    <Container className="main-container">
+      <WrapperButtonCollection className="wrapper-buttons">
+        Show Collection
+        <span onClick={() => handleClickCollection()}>
+          <IconCollection />
+        </span>
+      </WrapperButtonCollection>
 
-            <span onClick={() => handleClickBookmark()}>
-              <IconBookmark />
-            </span>
-          </WrapperTitle>
-          <ListCards className="list-cards">
-            {result &&
-              result?.results?.map((item, key) => {
-                return (
-                  <CardItem
-                    // get pokemon information more details, show modal
-                    onClick={() => handleClickPokemon(item)}
-                    key={key}
-                    className="card-item"
-                  >
-                    <Img className="" src={item.image} alt="img" />
-                    <P>{item.name}</P>
-                  </CardItem>
-                );
-              })}
-          </ListCards>
+      {!state.showCollection && (
+        <ContainerCards className="container-cards">
+          {!state.showDetail && !state.isLoadingPokemonDetail && (
+            <>
+              <WrapperTitle className="wrapper-title">
+                <Title className="title">List of pokemons</Title>
+              </WrapperTitle>
+              <ListCards className="list-cards">
+                {result &&
+                  result?.results?.map((item, key) => {
+                    return (
+                      <CardItem
+                        // get pokemon information more details, show modal
+                        onClick={() => handleClickPokemon(item)}
+                        key={key}
+                        className="card-item"
+                      >
+                        <Img className="" src={item.image} alt="img" />
+                        <P>{item.name}</P>
+                      </CardItem>
+                    );
+                  })}
+              </ListCards>
 
-          <WrapperButton className="wrapper-buttons">
-            <Button
-              className="btn-prev"
-              onClick={() => handleClickPrev()}
-              disabled={state.offset <= 1}
-            >
-              <span>Prev</span>
-            </Button>
+              <WrapperButton className="wrapper-buttons">
+                <Button
+                  className="btn-prev"
+                  onClick={() => handleClickPrev()}
+                  disabled={state.offset <= 1}
+                >
+                  <span>Prev</span>
+                </Button>
 
-            <Button className="btn-next" onClick={() => handleClickNext()}>
-              <span>Next</span>
-            </Button>
-          </WrapperButton>
-        </>
+                <Button className="btn-next" onClick={() => handleClickNext()}>
+                  <span>Next</span>
+                </Button>
+              </WrapperButton>
+            </>
+          )}
+
+          {state.isLoadingPokemonDetail && (
+            <WrapperLoadingScreen>
+              <LoadingText>Loading...</LoadingText>
+            </WrapperLoadingScreen>
+          )}
+
+          {state.showDetail && (
+            <PokemonDetailsPage
+              data={pokemonDetails}
+              img={state.image}
+              dispatchList={dispatchList}
+            />
+          )}
+        </ContainerCards>
       )}
 
-      {state.isLoadingPokemonDetail && (
-        <WrapperLoadingScreen>
-          <LoadingText>Loading...</LoadingText>
-        </WrapperLoadingScreen>
-      )}
-
-      {state.showDetail && (
-        <PokemonDetailsPage
-          data={pokemonDetails}
-          img={state.image}
-          dispatchList={dispatchList}
-        />
-      )}
-    </ContainerCards>
+      {state.showCollection && <PokemonCollection />}
+    </Container>
   );
 };
 
