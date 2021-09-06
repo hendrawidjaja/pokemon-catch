@@ -1,20 +1,20 @@
 import React, { useContext, useState } from "react";
 import { PokemonContext } from "../../contexts/PokemonContext";
-import { REDUCERCONSTANT } from "../../Constant/constantReducer";
-import { IconX } from "../../assets/IconPack";
+import { REDUCERCONSTANT } from "../../Reducers/pokemonReducer";
 
+import { IconX } from "../../assets/IconPack";
 import { Button } from "../../styles/button";
 import { ButtonClear, Form, Input, WrapperInput } from "./style";
 
 const { ADD_POKEMON } = REDUCERCONSTANT;
 
 const PokemonForm = ({ done, data, img }) => {
-  const { dispatchForm } = useContext(PokemonContext);
+  const { dispatch } = useContext(PokemonContext);
   const [name, setName] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatchForm({ type: ADD_POKEMON, payload: { name, data, img } });
+    dispatch({ type: ADD_POKEMON, payload: { name, data, img } });
     done();
     setName("");
   };

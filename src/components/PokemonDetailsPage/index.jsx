@@ -118,7 +118,9 @@ const PokemonDetailsPage = ({ data, img, dispatchList }) => {
       ) : !nameGiven ? (
         <PokemonForm done={handleNameGiven} data={data} img={img} />
       ) : (
-        <PokemonSecure onClick={() => handleBtnBack()}>Done</PokemonSecure>
+        <PokemonSecure onClick={() => handleBtnBack()}>
+          Pokemon added to collection
+        </PokemonSecure>
       )}
     </DetailPage>
   );
