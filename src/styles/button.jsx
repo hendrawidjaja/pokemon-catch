@@ -23,6 +23,8 @@ export const Button = styled(BaseButton)`
   }
 
   ${mq[3]} {
+    max-width: 220px;
+
     span {
       padding-left: calc(0.5vw + ${GSPACER.GUTTER[3]});
       padding-right: calc(0.5vw + ${GSPACER.GUTTER[3]});
