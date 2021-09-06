@@ -2,8 +2,8 @@ export const GCOLOR = {
   PRIMARY: "#333335",
   SECONDARY: "#888888",
   TERTIER: "#dcdcdc",
-  GRAY: "hsl(0, 0%, 7%)",
-  GRAY24: "hsl(0, 0%, 66.6%)",
+  GRAY: "#121212",
+  GRAY24: "#aaaaaa",
   BEIGE: "#D9CAB3",
   BLUEISH: "#b3c2d9",
 };
