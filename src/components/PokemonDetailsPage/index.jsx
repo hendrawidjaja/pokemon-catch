@@ -66,8 +66,8 @@ const PokemonDetailsPage = ({ data, img, dispatchList }) => {
         </span>
       </WrapperButtons>
 
-      <Container className="container" win>
-        <Name className="name">{data.name}</Name>
+      <Container data-testid="container" className="container">
+        <Name className="name">{data?.name}</Name>
         <WrapperImg className="wrapper-img">
           <Img className="pokemon-img" src={img} alt="pokemon-img" />
         </WrapperImg>
@@ -76,7 +76,7 @@ const PokemonDetailsPage = ({ data, img, dispatchList }) => {
           <>
             <ULAbilities>
               <Title>Abilities:</Title>
-              {data.abilities.map((ability, key) => (
+              {data?.abilities.map((ability, key) => (
                 <Li key={key} className="list-ability">
                   {ability.ability.name}
                 </Li>
@@ -85,7 +85,7 @@ const PokemonDetailsPage = ({ data, img, dispatchList }) => {
 
             <ULMoves>
               <Title>Moves:</Title>
-              {data.moves.map(
+              {data?.moves.map(
                 (move, key) =>
                   key < limitMoves && (
                     <Li key={key} className="list-move">
@@ -95,9 +95,9 @@ const PokemonDetailsPage = ({ data, img, dispatchList }) => {
               )}
             </ULMoves>
 
-            <ULTypes>
+            <ULTypes data-testid="list-types">
               <Title>Types:</Title>
-              {data.types.map((type, index) => (
+              {data?.types.map((type, index) => (
                 <Li key={index} className="list-type">
                   {type.type.name}
                 </Li>

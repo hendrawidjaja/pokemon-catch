@@ -31,7 +31,7 @@ const PokemonCollection = () => {
   };
 
   return (
-    <Container className="container">
+    <Container data-testid="container" className="container">
       {pokemons.length > 0 ? (
         <WrapperTitle className="wrapper-title">
           <Title className="title">List of your collection</Title>
@@ -39,7 +39,10 @@ const PokemonCollection = () => {
         </WrapperTitle>
       ) : (
         <>
-          <WrapperButtons className="wrapper-buttons">
+          <WrapperButtons
+            data-testid="wrapper-buttons"
+            className="wrapper-buttons"
+          >
             <span className="btn-back" onClick={() => handleClickCollection()}>
               <IconBack />
             </span>
@@ -59,8 +62,10 @@ const PokemonCollection = () => {
               className="card"
               onClick={() => releasePokemon(item.id)}
             >
-              <Name className="name">{item.name}</Name>
-              <img className="img" src={item.img} alt="img" />
+              <Name data-testid="name" className="name">
+                {item.name}
+              </Name>
+              <img data-testid="img" className="img" src={item.img} alt="img" />
               <Name smaller className="original-name">
                 {item.data.name}
               </Name>

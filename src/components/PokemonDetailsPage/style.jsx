@@ -144,6 +144,7 @@ const DetailPageButton = styled(BaseButton)`
   background-color: ${GCOLOR.SECONDARY};
   border: 1px solid ${GCOLOR.TERTIER};
   color: ${GCOLOR.TERTIER};
+  font-size: ${GFONT.SIZE[2]};
   margin-left: auto;
   margin-right: auto;
   margin-top: 0.85rem;
@@ -152,7 +153,7 @@ const DetailPageButton = styled(BaseButton)`
   width: 250px;
 
   ${mq[3]} {
-    font-size: ${GFONT.SIZE[2]};
+    font-size: ${GFONT.SIZE[3]};
   }
 `;
 

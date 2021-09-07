@@ -106,9 +106,11 @@ const PokemonListPage = () => {
   };
 
   return (
-    <Container className="main-container">
+    <Container role="main-container" className="main-container">
       {pokemons.length > 0 && (
-        <WrapperButtonCollection className="wrapper-buttons">
+        <WrapperButtonCollection
+          className="wrapper-buttons"
+        >
           Show Collection
           <span onClick={() => handleClickCollection()}>
             <IconCollection />
@@ -117,11 +119,13 @@ const PokemonListPage = () => {
       )}
 
       {!listState.showCollection && (
-        <ContainerCards className="container-cards">
+        <ContainerCards role="container-cards" className="container-cards">
           {!listState.showDetail && !listState.isLoadingPokemonDetail && (
             <>
               <WrapperTitle className="wrapper-title">
-                <Title className="title">List of pokemons</Title>
+                <Title data-testid="title" className="title">
+                  List of pokemons
+                </Title>
               </WrapperTitle>
               <ListCards className="list-cards">
                 {result &&

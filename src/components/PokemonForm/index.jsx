@@ -38,7 +38,7 @@ const PokemonForm = ({ done, data, img }) => {
   };
 
   return (
-    <Form className="form" onSubmit={handleSubmit}>
+    <Form role="form" className="form" onSubmit={handleSubmit}>
       <WrapperInput className="wrapper-input">
         <Input
           className="input-pokemon-name"
