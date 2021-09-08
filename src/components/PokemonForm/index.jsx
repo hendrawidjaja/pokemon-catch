@@ -56,7 +56,7 @@ const PokemonForm = ({ done, data, img }) => {
         )}
       </WrapperInput>
 
-      <Button className="btn-form" type="submit">
+      <Button data-testid="btnSubmit" className="btn-form" type="submit">
         <span>Submit</span>
       </Button>
     </Form>

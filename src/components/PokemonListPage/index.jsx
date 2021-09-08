@@ -108,9 +108,7 @@ const PokemonListPage = () => {
   return (
     <Container role="main-container" className="main-container">
       {pokemons.length > 0 && (
-        <WrapperButtonCollection
-          className="wrapper-buttons"
-        >
+        <WrapperButtonCollection className="wrapper-buttons">
           Show Collection
           <span onClick={() => handleClickCollection()}>
             <IconCollection />
@@ -127,7 +125,7 @@ const PokemonListPage = () => {
                   List of pokemons
                 </Title>
               </WrapperTitle>
-              <ListCards className="list-cards">
+              <ListCards data-testid="listCards" className="list-cards">
                 {result &&
                   result?.results?.map((item, key) => {
                     return (
@@ -150,11 +148,11 @@ const PokemonListPage = () => {
                   onClick={() => handleClickPrev()}
                   disabled={listState.offset <= 1}
                 >
-                  <span>Prev</span>
+                  <span data-testid="btnPrev">Prev</span>
                 </Button>
 
                 <Button className="btn-next" onClick={() => handleClickNext()}>
-                  <span>Next</span>
+                  <span data-testid="btnNext">Next</span>
                 </Button>
               </WrapperButton>
             </>
